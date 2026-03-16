@@ -1,202 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zomato Clone</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Bliss | Best Patties in Town</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #fffaf0;
+        }
 
-body {
-    background-color: #f8f8f8;
-}
+        /* Navigation */
+        nav {
+            background: #222;
+            color: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-header {
-    background: url('https://source.unsplash.com/1600x900/?restaurant,food') no-repeat center center/cover;
-    height: 90vh;
-    color: white;
-    position: relative;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffbe0b;
+        }
 
-.overlay {
-    background: rgba(0, 0, 0, 0.55);
-    height: 100%;
-    padding: 20px 60px;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .nav-links li {
+            margin-left: 20px;
+        }
 
-nav h1 {
-    font-size: 28px;
-    font-weight: bold;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+        .nav-links a:hover {
+            color: #ffbe0b;
+        }
 
-nav ul li {
-    margin-left: 25px;
-}
+        /* Hero Section */
+        #home {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
 
-.hero {
-    text-align: center;
-    margin-top: 120px;
-}
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
 
-.hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
+        .btn {
+            background: #ffbe0b;
+            color: #222;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
 
-.search-box {
-    margin-top: 20px;
-}
+        .btn:hover {
+            background: #fb5607;
+            color: white;
+        }
 
-.search-box input {
-    padding: 15px;
-    width: 300px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-}
+        /* Menu Section */
+        #menu {
+            padding: 80px 5%;
+            text-align: center;
+        }
 
-.section {
-    padding: 50px 80px;
-}
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
 
-.section h3 {
-    margin-bottom: 25px;
-    color: #e23744;
-}
+        .menu-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
 
-.cards {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-}
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
 
-.card {
-    background: white;
-    width: 280px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
 
-.card:hover {
-    transform: translateY(-8px);
-}
+        .menu-item h3 {
+            margin: 15px 0 10px;
+        }
 
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
+        .price {
+            color: #fb5607;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
 
-.card-content {
-    padding: 15px;
-}
+        /* Contact Section */
+        #contact {
+            background: #222;
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
 
-.card-content h4 {
-    margin-bottom: 10px;
-}
+        footer {
+            padding: 20px;
+            background: #111;
+            color: #777;
+            text-align: center;
+            font-size: 0.9rem;
+        }
 
-.card-content p {
-    color: #777;
-    font-size: 14px;
-}
-
-footer {
-    background: #222;
-    color: #aaa;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-}
-</style>
+        /* Responsive */
+        @media (max-width: 768px) {
+            #home h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <div class="overlay">
-        <nav>
-            <h1>Zomato</h1>
-            <ul>
-                <li><a href="#">Add Restaurant</a></li>
-                <li><a href="#">Log in</a></li>
-                <li><a href="#">Sign up</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <div class="logo">🍔 BURGER BLISS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <div class="hero">
-            <h2>Discover the best food & drinks</h2>
-            <div class="search-box">
-                <input type="text" placeholder="Search for restaurant, cuisine or a dish">
+    <section id="home">
+        <h1>Bite Into Perfection</h1>
+        <p>Juicy, Flame-Grilled, and Loaded with Flavor.</p>
+        <a href="#menu" class="btn">View Menu</a>
+    </section>
+
+    <section id="menu">
+        <h2>Our Signature Burgers</h2>
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Cheeseburger">
+                <h3>The Classic Melt</h3>
+                <p>Double beef patty with aged cheddar and secret sauce.</p>
+                <p class="price">$12.99</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=500&q=80" alt="Spicy Burger">
+                <h3>Inferno Heat</h3>
+                <p>Spicy jalapeños, pepper jack cheese, and sriracha mayo.</p>
+                <p class="price">$14.50</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=500&q=80" alt="Bacon Burger">
+                <h3>Bacon Beast</h3>
+                <p>Crispy maple bacon, onion rings, and BBQ glaze.</p>
+                <p class="price">$15.99</p>
             </div>
         </div>
-    </div>
-</header>
+    </section>
 
-<section class="section">
-    <h3>Popular Restaurants Near You</h3>
-    <div class="cards">
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?pizza" alt="Pizza">
-            <div class="card-content">
-                <h4>Italiano Delight</h4>
-                <p>Italian • ⭐ 4.2 • 30 mins</p>
-            </div>
-        </div>
+    <section id="contact">
+        <h2>Visit Us</h2>
+        <p>123 Burger Lane, Foodie City</p>
+        <p>Phone: (555) 012-3456</p>
+        <p>Open Daily: 11:00 AM - 10:00 PM</p>
+    </section>
 
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?biryani" alt="Biryani">
-            <div class="card-content">
-                <h4>Hyderabadi Biryani</h4>
-                <p>Indian • ⭐ 4.5 • 25 mins</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?burger" alt="Burger">
-            <div class="card-content">
-                <h4>Burger Factory</h4>
-                <p>Fast Food • ⭐ 4.1 • 20 mins</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dessert" alt="Dessert">
-            <div class="card-content">
-                <h4>Sweet Cravings</h4>
-                <p>Desserts • ⭐ 4.6 • 35 mins</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    © 2026 Zomato Clone | For Educational Purpose Only
-</footer>
+    <footer>
+        &copy; 2026 Burger Bliss. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
